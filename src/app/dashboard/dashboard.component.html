@@ -1,0 +1,28 @@
+
+ <a routerLink="/add" mat-raised-button color="primary">Add</a>
+<table mat-table [dataSource]="todos" matSort class="mat-elevation-z8">
+
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> edit </th>
+      <td mat-cell *matCellDef="let element" (click)="onEditClick(element)"> <mat-icon aria-hidden="false" aria-label="Example home icon">create</mat-icon>
+      </td>
+    </ng-container>
+
+  
+   
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
